@@ -1,24 +1,24 @@
 # Pong
 
-Esse È um clone do jogo Pong feito em C# com a engine [MonoGame](https://monogame.net/).
+Esse √© um clone do jogo Pong feito em C# com a engine [MonoGame](https://monogame.net/).
 
-![Foto do jogo em seu estado inicial](../../docs/cover.png)
+![Foto do jogo em seu estado inicial](docs/cover.png)
 
-## InteligÍncia Artificial do Inimigo
+## Intelig√™ncia Artificial do Inimigo
 
-Calculamos o ponto de intersecÁ„o do Paddle com a bola, assim sabemos para onde ir.
+Calculamos o ponto de intersec√ß√£o do Paddle com a bola, assim sabemos para onde ir.
 
-![RepresentaÁ„o do ponto de intersecÁ„o](../../docs/interseccao.png)
+![Representa√ß√£o do ponto de intersec√ß√£o](docs/interseccao.png)
 
-O ponto de interseÁ„o $(x, y)$ entre dois segmentos de linha $AB$ e $CD$ pode ser encontrado usando as seguintes fÛrmulas:
+O ponto de interse√ß√£o $(x, y)$ entre dois segmentos de linha $AB$ e $CD$ pode ser encontrado usando as seguintes f√≥rmulas:
 
 \[
 \text{denominador} = (x_A - x_B) \times (y_C - y_D) - (y_A - y_B) \times (x_C - x_D)
 \]
 
-Se $\text{denominador} = 0$, as linhas s„o paralelas e n„o h· ponto de interseÁ„o.
+Se $\text{denominador} = 0$, as linhas s√£o paralelas e n√£o h√° ponto de interse√ß√£o.
 
-Caso contr·rio, calcule:
+Caso contr√°rio, calcule:
 
 \[
 t = \frac{(x_A - x_C) \times (y_C - y_D) - (y_A - y_C) \times (x_C - x_D)}{\text{denominador}}
@@ -28,7 +28,7 @@ t = \frac{(x_A - x_C) \times (y_C - y_D) - (y_A - y_C) \times (x_C - x_D)}{\text
 u = -\frac{(x_A - x_B) \times (y_A - y_C) - (y_A - y_B) \times (x_A - x_C)}{\text{denominador}}
 \]
 
-Se $t$ e $u$ estiverem ambos no intervalo $[0, 1]$, ent„o o ponto de interseÁ„o est· dentro dos segmentos de linha, e suas coordenadas s„o:
+Se $t$ e $u$ estiverem ambos no intervalo $[0, 1]$, ent√£o o ponto de interse√ß√£o est√° dentro dos segmentos de linha, e suas coordenadas s√£o:
 
 \[
 x = x_A + t \times (x_B - x_A)
@@ -38,9 +38,9 @@ x = x_A + t \times (x_B - x_A)
 y = y_A + t \times (y_B - y_A)
 \]
 
-A partir daqui, mudamos o tempo de reaÁ„o do inimigo de acordo com suas vitÛrias e derrotas. Se estiver ganhando muito, aumentamos o tempo de reaÁ„o, facilitando o jogo, se estiver ganhando pouco diminuimos o tempo de reaÁ„o, dificultando o jogo. Com isso temos um jogo que permanece balanceado.
+A partir daqui, mudamos o tempo de rea√ß√£o do inimigo de acordo com suas vit√≥rias e derrotas. Se estiver ganhando muito, aumentamos o tempo de rea√ß√£o, facilitando o jogo, se estiver ganhando pouco diminuimos o tempo de rea√ß√£o, dificultando o jogo. Com isso temos um jogo que permanece balanceado.
 
-## CrÈditos
+## Cr√©ditos
 
 - Arte por [Esoe B.Studios](https://myebstudios.itch.io/)
 - Efeitos sonoros por [NoiseCollector](https://freesound.org/people/NoiseCollector/)
