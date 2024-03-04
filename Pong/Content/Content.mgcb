@@ -92,3 +92,27 @@
 /processorParam:TextureFormat=Compressed
 /build:File.spritefont
 
+#begin music/ponblipg5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:music/ponblipg5.wav
+
+#begin music/pongblipa3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:music/pongblipa3.wav
+
+#begin music/pongblipa4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:music/pongblipa4.wav
+
+#begin music/pongblipf4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:music/pongblipf4.wav
+

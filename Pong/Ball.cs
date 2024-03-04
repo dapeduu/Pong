@@ -1,16 +1,20 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 namespace Pong;
 
 public class Ball: Entity
 {
     public Vector2 Direction;
     public float Speed;
+    public List<SoundEffect> Songs;
 
     public Ball(Vector2 position, float speed) : base(position)
     {
         Speed = speed;
         Direction = DirectionsHelper.GetRandomDirection(false);
+        Songs = new List<SoundEffect>();
     }
 
     public void Update(GameTime gameTime, Player player, Enemy enemy)
@@ -38,6 +42,12 @@ public class Ball: Entity
         };
     }
 
+    private void PlaySound()
+    {
+        var random = new Random();
+        Songs[random.Next(0, Songs.Count)].Play();
+    }
+
     private void HandleWallsCollision()
     {
         var ballTopLeft = Position - new Vector2(Texture.Width / 2, Texture.Height / 2);
@@ -46,12 +56,15 @@ public class Ball: Entity
         if (ballTopLeft.Y < WorldValues.minBoundaries.Y || ballTopLeft.Y + Texture.Height > WorldValues.maxBoundaries.Y)
         {
             Direction.Y *= -1;
+            PlaySound();
         }
 
         if (ballTopLeft.X < WorldValues.minBoundaries.X || ballTopLeft.X + Texture.Width > WorldValues.maxBoundaries.X)
         {
             Direction.X *= -1;
+            PlaySound();
         }
+
     }
 
     // Maps the given x to its corresponding value in the range
@@ -81,6 +94,7 @@ public class Ball: Entity
             Direction.X *= -1;
             Direction.Y = MapRange(Position.Y, entityTopLeftPoint.Y, entityBottomRight.Y, -1f, 1f);
             Speed += 2;
+            PlaySound();
         }
     }
 

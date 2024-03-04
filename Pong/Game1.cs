@@ -1,7 +1,10 @@
 ﻿using System.Diagnostics;
+using System.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace Pong;
 
@@ -81,6 +84,14 @@ public class Game1 : Game
         enemy.Position.X = enemy.Texture.Width;
 
         ball.Texture = Content.Load<Texture2D>("assets/arts/Ball");
+
+        string[] songs = {"music/pongblipf4", "music/ponblipg5", "music/pongblipa3", "music/pongblipa4"};
+        foreach (string s in songs)
+        {
+            var song = Content.Load<SoundEffect>(s);
+            ball.Songs.Add(song);
+        }
+
         board = Content.Load<Texture2D>("assets/arts/Board");
         scoreBar = Content.Load<Texture2D>("assets/arts/ScoreBar");
 
